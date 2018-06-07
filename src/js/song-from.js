@@ -92,7 +92,9 @@
                 })
                 this.model.create(data).then(()=>{
                     this.view.reset()
-                    window.eventHub.emit('create',this.model.data)
+                    let string = JSON.stringify(this.model.data)        //深拷贝
+                    let object = JSON.parse(string)         
+                    window.eventHub.emit('create',object)
                 })
             })
         }

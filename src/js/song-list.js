@@ -3,7 +3,6 @@
         el:'#songList-container',
         template:`
         <ul class="songList">
-            <li>asdasdsdas</li>
         </ul>
         `,
         render(data){
@@ -13,6 +12,7 @@
                 let li = $('<li></li>').text(song.name)
                 return li
             })
+            console.log(liList)
             let $el = $(this.el)
             $el.find('ul').empty()
             liList.map((domLi)=>{
@@ -37,8 +37,6 @@
                 this.view.clearActive()
             })
             window.eventHub.on('create',(songData)=>{
-                console.log(songData)
-                console.log(this.model.data)
                 this.model.data.songs.push(songData)
                 this.view.render(this.model.data)
             })
