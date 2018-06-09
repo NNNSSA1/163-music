@@ -16,13 +16,17 @@
             this.view.render(this.model.data)
             this.active()
             window.eventHub.on('upload',(data)=>{
-               console.log('new song 模块得到了 data')
-               console.log(data)
                this.active()
-           }) 
+           })
+           window.eventHub.on('select',()=>{
+               this.deactive()
+           })
         },
         active(){
             $(this.view.el).addClass('active')
+        },
+        deactive(){
+            $(this.view.el).removeClass('active')
         }
     }
     contorller.init(view,model)
