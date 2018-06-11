@@ -1,0 +1,177 @@
+@function px( $px ){
+	@return $px/$designWidth + rem;
+}
+$designWidth : 375;
+*{margin: 0;padding: 0; box-sizing: border-box;}
+*::after{box-sizing: border-box;}
+*::before{box-sizing: border-box;}
+h1,h2,h3,h4,h5,h6{font-weight: normal;}
+a{color: inherit;text-decoration: none;}
+ol,li{list-style: none;}
+
+.icon {
+    width: 1em; height: 1em;
+    vertical-align: -0.15em;
+    fill: currentColor;
+    overflow: hidden;
+ }
+body{
+    font-size: 15px;
+}
+.appWrapper{
+    header{
+        display: flex;
+        flex-direction: column;
+        }
+    }
+.sticky{
+    .topBar{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: px(16) px(10);
+        width: 1rem;
+        background-color:#D43C33;
+        svg{
+            width: px(142);
+            height: px(25);
+        }
+        a{
+            color:white;
+            border: 1px solid rgb(235, 164, 160);
+            border-radius: px(20);
+            padding: px(4) px(8);
+            font-size: 15px
+        }
+    }
+    nav{
+        .tabList{
+            display: flex;
+            justify-content: space-around;
+            border-bottom:1px solid#ddd;
+            li{
+                position: relative;
+                padding: px(10) 0;
+                span::after{
+                    display: none;
+                    position: absolute;
+                    content: '';
+                    bottom:0;
+                    left: 0;
+                    width: 100%;
+                    border: 1px solid #D33A31;
+                }
+            }
+            li.active{
+                span::after{
+                    display: block;
+                }
+                span{
+                    color: #D33A31;
+                }
+            }   
+        }
+    }
+}
+main{
+    .tabContent{
+
+    }
+}
+.page-1{
+    section{
+        h2{
+            border-left:2px solid #D33A31;
+            line-height: 1;
+            font-size: px(17);
+            margin: px(20) 0;
+            padding-left: px(8);
+        }
+    }        
+}
+.musicList{
+    display: flex;
+    flex-wrap: wrap;
+    .music{
+        width: 32.3%;
+        padding-bottom: px(16);
+        flex-grow: 1;
+        .cover{
+            position: relative;
+            img{
+                width: 100%;
+                height: 100%;
+            }
+            p{
+                padding:px(6) px(6) 0 px(6);
+                display: -webkit-box;
+                -webkit-box-orient: vertical;
+                -webkit-line-clamp: 2;
+                overflow: hidden;
+            }
+            span{
+                position: absolute;
+                top:0;
+                right: px(5);
+                font-size: 13px;
+                color: white;
+            }
+        }  
+    }
+    .music:nth-child(2),.music:nth-child(5){
+        margin: 0 px(3);
+    }
+}
+.song{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-grow: 1;
+    border-bottom: 1px solid #ddd;
+    padding: px(6) 0;
+    .songName{
+        padding-left: px(8);
+        p{
+            font-size: 17px;
+        }
+        span{
+            color:#888;
+            font-size: 12px;
+        }
+    }
+    .playBtn{
+        font-size: 30px;
+        color: #888;
+    }
+
+}
+.footerWrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-image: url('../img/footerBC.png');
+    background-size: cover;
+    padding-top: px(90);
+    .logosvg{
+        width: px(230);
+        height: px(44);
+
+    }
+    .openApp{
+        text-align: center;
+        width: px(300);
+        padding:px(8) 0;
+        border: 1px solid #D33A31;
+        border-radius: px(38);
+        margin-top: px(15);
+        margin-bottom: px(5);
+        color: #D33A31;
+        font-size: 16px;
+    }
+    p{
+        font-size: 9px;
+        color: #888;
+        margin-bottom: px(25);
+    }
+    
+}

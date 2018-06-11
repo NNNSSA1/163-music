@@ -7,20 +7,20 @@
         `,
         render(data) {
             $(this.el).html(this.template)
-            let { songs } = data
+            let { songs, SongId} = data
             let liList = songs.map((song) => {
-                let li = $('<li></li>').text(song.name).attr('data-id',song.id)
-                return li
+                let $li = $('<li></li>').text(song.name).attr('data-id', song.id)
+                if (song.id === SongId) {
+                    $li.addClass('active')
+                }
+                return $li
             })
+
             let $el = $(this.el)
             $el.find('ul').empty()
             liList.map((domLi) => {
                 $el.find('ul').append(domLi)
             })
-        },
-        activeItem(li){
-            let $li = $(li)
-            $li.addClass('active').siblings('.active').removeClass('active')
         },
         clearActive() {
             $(this.el).find('.active').removeClass('active')
@@ -28,7 +28,8 @@
     }
     let model = {
         data: {
-            songs: []
+            songs: [],
+            SongId: undefined,
         },
         find() {
             var query = new AV.Query('Song');
@@ -57,13 +58,15 @@
             })
         },
         bindEvents() {
-            $(this.view.el).on('click','li',(e)=>{
-                this.view.activeItem(e.currentTarget)
+            $(this.view.el).on('click', 'li', (e) => {
                 let songId = e.currentTarget.getAttribute('data-id')
+                this.model.data.SongId = songId
+                this.view.render(this.model.data)
+
                 let songs = this.model.data.songs
                 let data
-                for(let i = 0;i<songs.length;i++){
-                    if(songs[i].id === songId){
+                for (let i = 0; i < songs.length; i++) {
+                    if (songs[i].id === songId) {
                         data = songs[i]
                         break
                     }
@@ -78,15 +81,14 @@
                 this.model.data.songs.push(songData)
                 this.view.render(this.model.data)
             })
-            window.eventHub.on('new',()=>{
+            window.eventHub.on('new', () => {
                 this.view.clearActive()
             })
-            window.eventHub.on('updata',(song)=>{
+            window.eventHub.on('updata', (song) => {
                 let songs = this.model.data.songs
-
-                for(let i= 0;i<songs.length;i++){
-                    if(songs[i].id===song.id){
-                           Object.assign(songs[i],song)  // songs[i] = song
+                for (let i = 0; i < songs.length; i++) {
+                    if (songs[i].id === song.id) {
+                        Object.assign(songs[i], song)  // songs[i] = song
                     }
                 }
                 this.view.render(this.model.data)
