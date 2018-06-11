@@ -79,3 +79,42 @@ form .row input[type=submit]{
     border-radius: 5px;
     font-size: inherit
 }
+/* uploading animation */
+@keyframes loading{
+    0%{
+        transform: scale(1)
+    }
+    100%{
+        transform: scale(0)
+    }
+}
+.site-loading {
+    visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+.site-loading::after{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;;
+    content: '上传中...';
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    margin-bottom: 50px;
+    margin-right: 50px;
+    background-color: #a2bfcd;
+    animation: loading  1s linear alternate-reverse infinite;
+}
+.site-loading.active{
+    visibility: visible;
+}
+/* uploading animation */
