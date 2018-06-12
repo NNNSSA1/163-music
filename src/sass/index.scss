@@ -92,10 +92,26 @@ main{
                     margin: px(20) 0;
                     padding-left: px(8);
                 }
-            }        
+                .musicload{
+                    display: none;
+                    text-align: center;
+                }
+                .musicload.active{
+                    display: block;
+                }
+
+            }
+
         }
         .page-2{
             display: none;
+            .hotMusic{
+                display: none;
+                text-align: center;
+            }
+            .hotMusic.active{
+                display: block;
+            }
         }
         .page-3{
             display: none;

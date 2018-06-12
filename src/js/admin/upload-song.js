@@ -51,7 +51,8 @@
                         //  }
                         var domain = up.getOption('domain');
                         var response = JSON.parse(info.response);
-                        var sourceLink = 'http://' + domain + '/' + encodeURIComponent(response.key);   
+                        var sourceLink = 'http://' + domain + '/' + encodeURIComponent(response.key); 
+                        console.log(info.response)  
                          //encodeURIComponent      //获取上传成功后的文件的Url
                          window.eventHub.emit('new',{
                              url : sourceLink,

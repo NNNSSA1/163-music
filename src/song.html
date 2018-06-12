@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>播放列表</title>
+    <link rel="stylesheet" href="./css/song.css">
+</head>
+
+<body>
+    <div class="wrapper">
+        <header>
+            <div class="logo">
+                <img src="./img/logo.png">
+            </div>
+            <div class="songWrapper">
+                <div class="discWrapper">
+                    <img class="needle" src="./img/needles.png">
+                    <div class="disc">
+                        <img src="./img/disc.png">
+                        <img class="disclight" src="./img/disclight.png">
+                        <svg class="icon-play" aria-hidden="true">
+                            <use xlink:href="#icon-play"></use>
+                        </svg>
+                        <svg class="icon-pause" aria-hidden="true">
+                            <use xlink:href="#icon-pause"></use>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <main>
+            <div class="lyricWrapper">
+                <div class="song">
+                    <span class="songName">{{song.name}}</span>
+                    <span>-</span>
+                    <span class="songSinger">{{song.singer}}</span>
+                </div>
+                <div class="lyricScroll">
+                    <div class="lyric">
+                        <p>lalalaasdasd</p>
+                        <p>lalala</p>
+                        <p>lalala</p>
+                        <p>lalala</p>
+                        <p>lalala</p>
+                        <p>lalala</p>
+                        <p>lalala</p>
+                        <p>lalala</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <footer>
+            <div class="buttonWrapper">
+                <button class="openApp">打开</button>
+                <button class="downloadApp">下载</button>
+            </div>
+        </footer>
+    </div>
+
+
+
+
+
+
+
+
+
+    <script src="../node_modules/leancloud-storage/dist/av-min.js"></script>
+    <script src="./js/initializers/av.js"></script>
+    <script src="./js/initializers/rem.js"></script>
+    <script src="//at.alicdn.com/t/font_701804_54vm399jdqs.js"></script>
+    <script src="../vendors/jquery-3.3.1.min.js"></script>
+    <script src="./js/admin/event-hub.js"></script>
+    <script src="./js/song/song.js"></script>
+</body>
+
+</html>

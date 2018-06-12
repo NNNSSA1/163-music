@@ -4,30 +4,35 @@
         init() {
             this.$el = $(this.el)
         },
-        render(data) {
-            let {songs} = data
-            songs.map((song)=>{
-                let $li = $(`
-                <li class="song">
-                    <a href="${song.url}" class="playSong">
-                        <div class="songName">
-                            <p>${song.name}</p>
-                            <span>
-                                <svg class="icon" aria-hidden="true">
-                                    <use xlink: href="#icon-wusunyinzhi"></use>
-                                </svg>
-                               ${song.singer}
-                            </span>
-                        </div>
-                        <svg class="playicon" aria-hidden="true">
-                            <use xlink: href="#icon-play"></use>
+        template: `
+        <li class="song">
+            <a href="./song.html?id={{song.id}}" class="playSong">
+                <div class="songName">
+                    <p>{{song.name}}</p>
+                    <span>
+                        <svg class="icon" aria-hidden="true">
+                            <use xlink: href="#icon-wusunyinzhi"></use>
                         </svg>
-                    </a >
-                </li >
-                `)
+                        {{song.singer}}
+                    </span>
+                </div>
+                <svg class="playicon" aria-hidden="true">
+                    <use xlink: href="#icon-play"></use>
+                </svg>
+            </a >
+        </li >
+        `,
+
+        render(songs) {
+            songs.map((song) => {
+                let $li = $(this.template
+                        .replace('{{song.name}}',song.name)
+                        .replace('{{song.singer}}',song.singer)
+                        .replace('{{song.id}}',song.id))
                 this.$el.find('#songs').append($li)
             })
 
+            this.$el.find('.musicload').removeClass('active')
         }
     }
     let model = {
@@ -53,7 +58,7 @@
             this.model = model
             this.view.init()
             this.model.find().then(() => {
-                this.view.render(this.model.data)
+                this.view.render(this.model.data.songs)
             })
         }
     }

@@ -84,9 +84,19 @@ main .tabContent .page-1 {
     font-size: 0.04533rem;
     margin: 0.05333rem 0;
     padding-left: 0.02133rem; }
+  main .tabContent .page-1 section .musicload {
+    display: none;
+    text-align: center; }
+  main .tabContent .page-1 section .musicload.active {
+    display: block; }
 
 main .tabContent .page-2 {
   display: none; }
+  main .tabContent .page-2 .hotMusic {
+    display: none;
+    text-align: center; }
+  main .tabContent .page-2 .hotMusic.active {
+    display: block; }
 
 main .tabContent .page-3 {
   display: none; }
