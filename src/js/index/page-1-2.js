@@ -17,7 +17,7 @@
                     </span>
                 </div>
                 <svg class="playicon" aria-hidden="true">
-                    <use xlink: href="#icon-play"></use>
+                    <use xlink: href="#icon-bofang"></use>
                 </svg>
             </a >
         </li >

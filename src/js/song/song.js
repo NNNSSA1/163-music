@@ -1,38 +1,47 @@
 {
     let view = {
-        el:'#disc',
-        template:`
-        <audio autoplay src="{{url}}"></audio>
-        <div>
-            <button id="play">播放</button>
-            <button id="pause">暂停</button>
-        </div>
-        `,
+        el:'#app',
         rander(data){
-            let button =  $(this.el).html(this.template.replace('{{url}}',data.url))
-            console.log(button)
-            $(this.el).append(button)
+            let {song,status} = data
+            $('.cover').css('background-image',`url(${song.cover})`)
+            $('.album').attr('src',song.cover)
+            if($('audio').attr('src') !== song.url){
+                $(this.el).find('audio').attr('src',song.url)
+                $('audio').on('ended',()=>{
+                    window.eventHub.emit('end')
+                })
+            }
+            if(data.status === 'pause'){
+                this.play()
+            }else{
+                this.pause()
+            }
         },
         play(){
-           let audio = $(this.el).find('audio')[0]
-           audio.play()
+            $(this.el).find('audio')[0].play()
+            $('.disc').removeClass('pause')
+            $('.iconplay').removeClass('pause')
         },
         pause(){
-            let audio = $(this.el).find('audio')[0]
-            audio.pause()
+            $(this.el).find('audio')[0].pause()
+            $('.disc').addClass('pause')
+            $('.iconplay').addClass('pause')
         }
     }
     let model = {
         data: {
-            id: '',
-            url: '',
-            name: '',
-            singer: ''
+            song:{
+                id: '',
+                url: '',
+                name: '',
+                singer: ''
+            },
+            status:'pause'
         },
         get(id) {
             var query = new AV.Query('Song')
             return query.get(id).then((song)=>{
-                Object.assign(this.data, {id:song.id,...song.attributes})
+                Object.assign(this.data.song, {id:song.id,...song.attributes})
                 return song
             })
         }
@@ -67,14 +76,21 @@
             return id
         },
         bindEvents(){
-            $(this.view.el).on('click','#play',()=>{
-                this.view.play()
+            $(this.view.el).on('click',()=>{
+                if(this.model.data.status === 'pause'){
+                    this.model.data.status = 'playing'
+                    this.view.rander(this.model.data)
+                }else{
+                    this.model.data.status = 'pause'
+                    this.view.rander(this.model.data)
+                }
             })
-            $(this.view.el).on('click','#pause',()=>{
+            window.eventHub.on('end',()=>{
+                this.model.data.status = 'playing'
                 this.view.pause()
             })
-
         },
+
     }
     controller.init(view, model)
 }

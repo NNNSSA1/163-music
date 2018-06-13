@@ -21,12 +21,16 @@
             <input name="url" type="text" value="__url__">
         </div>
         <div class="row">
+            封面
+        <input name="cover" type="text" value="__cover__">
+        </div>
+        <div class="row">
             <input type="submit" value="保存">
         </div>
     </form>
     `,
         render(data = {}) { //es6语法  如果用户没传数据那么就是空  
-            let placeholders = ['name', 'singer', 'url', 'id']
+            let placeholders = ['name', 'singer', 'url', 'id','cover']
             let html = this.template
             placeholders.map((string) => {
                 html = html.replace(`__${string}__`, data[string] || '')  //兼容undefined 如果是那么就是空字符串
@@ -44,7 +48,7 @@
     }
     let model = {
         data: {
-            name: '', singer: '', url: '', id: ''
+            name: '', singer: '', url: '', id: '',cover:''
         },
         create(data) {
             // 声明类型
@@ -55,6 +59,7 @@
             song.set('name', data.name);
             song.set('singer', data.singer);
             song.set('url', data.url);
+            song.set('cover', data.cover);
             return song.save().then((newSong) => {
                 let { id, attributes } = newSong
                 // this.data.id = id
@@ -72,13 +77,14 @@
                 console.error(error);
             });
         },
-        updata(data){
-            var song = AV.Object.createWithoutData('Song',this.data.id);
+        updata(data) {
+            var song = AV.Object.createWithoutData('Song', this.data.id);
             song.set('name', data.name);
             song.set('url', data.url);
             song.set('singer', data.singer);
-            return song.save().then((response)=>{
-                Object.assign(this.data,data)   
+            song.set('cover', data.cover);
+            return song.save().then((response) => {
+                Object.assign(this.data, data)
                 return response
             })
         }
@@ -94,7 +100,7 @@
                 console.log(this.model.data.id)
                 if (this.model.data.id) {
                     this.model.data = {
-                        name: '', url: '', id: '', singer: ''
+                        name: '', url: '', id: '', singer: '',cover:''
                     }
                 } else {
                     Object.assign(this.model.data, data)
@@ -106,33 +112,33 @@
                 this.view.render(this.model.data)
             })
         },
-        create(){
-            let needs = 'name singer url'.split(' ')
+        create() {
+            let needs = 'name singer url cover'.split(' ')
             let data = {}
             needs.map((string) => {
                 data[string] = this.view.$el.find(`[name="${string}"]`).val()
             })
             this.model.create(data).then(() => {
-                this.view.reset()   
+                this.view.reset()
                 window.eventHub.emit('create', JSON.parse(JSON.stringify(this.model.data))) //深拷贝
             })
         },
-        updata(){
-            let needs = 'name singer url'.split(' ')
+        updata() {
+            let needs = 'name singer url cover'.split(' ')
             let data = {}
             needs.map((string) => {
                 data[string] = this.view.$el.find(`[name="${string}"]`).val()
             })
-            this.model.updata(data).then(()=>{
-                window.eventHub.emit('updata',JSON.parse(JSON.stringify(this.model.data)))
+            this.model.updata(data).then(() => {
+                window.eventHub.emit('updata', JSON.parse(JSON.stringify(this.model.data)))
             })
         },
         bindEvents() {
             this.view.$el.on('submit', 'form', (e) => {
                 e.preventDefault()
-                if(this.model.data.id){
+                if (this.model.data.id) {
                     this.updata()
-                }else{
+                } else {
                     this.create()
                 }
             })

@@ -26,14 +26,31 @@ ol, li {
   fill: currentColor;
   overflow: hidden; }
 
+@keyframes turn {
+  0% {
+    transform: rotate(0); }
+  100% {
+    transform: rotate(360deg); } }
+
 body {
   font-size: 16px; }
 
 .wrapper {
+  position: relative;
   display: flex;
   flex-direction: column;
-  height: 100vh;
-  background-color: gray; }
+  height: 100vh; }
+  .wrapper .cover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("#");
+    background-size: cover;
+    background-position: center;
+    filter: blur(0.01449rem);
+    z-index: -1; }
 
 header .logo {
   position: absolute;
@@ -44,12 +61,6 @@ header .logo {
 
 header .songWrapper {
   text-align: center; }
-
-@keyframes turn {
-  0% {
-    transform: rotate(0); }
-  100% {
-    transform: rotate(360deg); } }
   header .songWrapper .discWrapper {
     display: flex;
     flex-direction: column;
@@ -63,37 +74,37 @@ header .songWrapper {
       left: 45%;
       z-index: 1; }
     header .songWrapper .discWrapper .disc {
-      position: relative; }
+      position: relative;
+      animation: turn 20s linear infinite; }
       header .songWrapper .discWrapper .disc img {
         height: 0.82609rem;
-        width: 0.82609rem;
-        animation: turn 20s linear infinite; }
+        width: 0.82609rem; }
       header .songWrapper .discWrapper .disc .disclight {
         position: absolute;
         top: 0;
         left: 0; }
-      header .songWrapper .discWrapper .disc svg {
+      header .songWrapper .discWrapper .disc .iconButton {
         position: absolute;
         top: 40%;
         left: 40%;
-        z-index: 1;
-        width: 0.157rem;
-        height: 0.157rem;
-        fill: white; }
-      header .songWrapper .discWrapper .disc .icon-play {
-        display: none; }
-      header .songWrapper .discWrapper .disc .icon-play.active {
-        display: block; }
-    header .songWrapper .discWrapper .disc::after {
-      content: '';
-      position: absolute;
-      top: 18%;
-      left: 18%;
-      width: 0.52174rem;
-      height: 0.52174rem;
-      border-radius: 50%;
-      background-image: url("../img/album.jpg");
-      animation: turn 20s linear infinite; }
+        z-index: 1; }
+        header .songWrapper .discWrapper .disc .iconButton .iconplay {
+          display: none; }
+          header .songWrapper .discWrapper .disc .iconButton .iconplay svg {
+            width: 0.157rem;
+            height: 0.157rem;
+            fill: black; }
+        header .songWrapper .discWrapper .disc .iconButton .iconplay.pause {
+          display: block; }
+      header .songWrapper .discWrapper .disc .album {
+        position: absolute;
+        top: 18%;
+        left: 18%;
+        width: 0.52174rem;
+        height: 0.52174rem;
+        border-radius: 50%; }
+    header .songWrapper .discWrapper .disc.pause {
+      animation-play-state: paused; }
 
 main {
   margin-top: 0.06039rem; }
