@@ -88,7 +88,7 @@ header{
                         svg{
                             width: px(65);
                             height: px(65);
-                            fill: black;
+                            fill: white;
                         }
                     }
                     .iconplay.pause{
@@ -134,11 +134,14 @@ main{
             overflow: hidden;
             margin:px(14) 0;
             width: px(344);
-            border: 1px solid red;
             height: 100px;
             .lyric{
+                transition: all 0.3s;
                 p{
                     padding-bottom: px(8);
+                }
+                p.active{
+                    color:white;
                 }
                 color: #AEAEAE;
             }
@@ -147,6 +150,7 @@ main{
 }
 
 footer{
+    padding-top:px(70);
     position: relative;
     flex-grow: 1;
     .buttonWrapper{

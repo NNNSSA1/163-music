@@ -79,6 +79,11 @@ form .row input[type=submit]{
     border-radius: 5px;
     font-size: inherit
 }
+form .row textarea{
+    width: 400px;
+    height: 300px;
+    resize: none;
+}
 /* uploading animation */
 @keyframes loading{
     0%{

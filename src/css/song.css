@@ -93,7 +93,7 @@ header .songWrapper {
           header .songWrapper .discWrapper .disc .iconButton .iconplay svg {
             width: 0.157rem;
             height: 0.157rem;
-            fill: black; }
+            fill: white; }
         header .songWrapper .discWrapper .disc .iconButton .iconplay.pause {
           display: block; }
       header .songWrapper .discWrapper .disc .album {
@@ -126,14 +126,17 @@ main {
       overflow: hidden;
       margin: 0.03382rem 0;
       width: 0.83092rem;
-      border: 1px solid red;
       height: 100px; }
       main .lyricWrapper .lyricScroll .lyric {
+        transition: all 0.3s;
         color: #AEAEAE; }
         main .lyricWrapper .lyricScroll .lyric p {
           padding-bottom: 0.01932rem; }
+        main .lyricWrapper .lyricScroll .lyric p.active {
+          color: white; }
 
 footer {
+  padding-top: 0.16908rem;
   position: relative;
   flex-grow: 1; }
   footer .buttonWrapper {

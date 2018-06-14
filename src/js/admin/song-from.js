@@ -25,12 +25,16 @@
         <input name="cover" type="text" value="__cover__">
         </div>
         <div class="row">
+            歌词
+        <textarea name='lyric'>__lyric__</textarea>
+         </div>
+        <div class="row">
             <input type="submit" value="保存">
         </div>
     </form>
     `,
         render(data = {}) { //es6语法  如果用户没传数据那么就是空  
-            let placeholders = ['name', 'singer', 'url', 'id','cover']
+            let placeholders = ['name', 'singer', 'url', 'id','cover','lyric']
             let html = this.template
             placeholders.map((string) => {
                 html = html.replace(`__${string}__`, data[string] || '')  //兼容undefined 如果是那么就是空字符串
@@ -48,7 +52,7 @@
     }
     let model = {
         data: {
-            name: '', singer: '', url: '', id: '',cover:''
+            name: '', singer: '', url: '', id: '',cover:'',lyric:''
         },
         create(data) {
             // 声明类型
@@ -60,7 +64,9 @@
             song.set('singer', data.singer);
             song.set('url', data.url);
             song.set('cover', data.cover);
+            song.set('lyric', data.lyric);
             return song.save().then((newSong) => {
+                consoel.log(newSong)
                 let { id, attributes } = newSong
                 // this.data.id = id
                 // this.data.name = attributes.name
@@ -83,7 +89,9 @@
             song.set('url', data.url);
             song.set('singer', data.singer);
             song.set('cover', data.cover);
+            song.set('lyric', data.lyric);
             return song.save().then((response) => {
+                console.log(response)
                 Object.assign(this.data, data)
                 return response
             })
@@ -113,7 +121,7 @@
             })
         },
         create() {
-            let needs = 'name singer url cover'.split(' ')
+            let needs = 'name singer url cover lyric'.split(' ')
             let data = {}
             needs.map((string) => {
                 data[string] = this.view.$el.find(`[name="${string}"]`).val()
@@ -124,7 +132,7 @@
             })
         },
         updata() {
-            let needs = 'name singer url cover'.split(' ')
+            let needs = 'name singer url cover lyric'.split(' ')
             let data = {}
             needs.map((string) => {
                 data[string] = this.view.$el.find(`[name="${string}"]`).val()
