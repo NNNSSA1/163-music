@@ -33,7 +33,7 @@
         },
         loadModel1(){
             let script1 = document.createElement('script')
-            script1.src = './js/index/page-1-1.js'
+            script1.src = './js/index/playList.js'
             document.body.appendChild(script1)
             script1.onload = function(){
                 console.log('模块一加载成功')
@@ -41,7 +41,7 @@
         },
         loadModel2(){
             let script2 = document.createElement('script')
-            script2.src = './js/index/page-1-2.js'
+            script2.src = './js/index/songlist.js'
             document.body.appendChild(script2)
             script2.onload = function(){
                 console.log('模块二加载成功')

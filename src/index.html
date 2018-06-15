@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>网易云音乐</title>
     <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.3.3/css/swiper.min.css">
 </head>
 
 <body>
@@ -77,6 +78,21 @@
         <main>
             <ol class="tabContent">
                 <li class="page-1 active">
+                    <div class="swiper-container">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <a class="slide1" href="#"></a>
+                            </div>
+                            <div class="swiper-slide">
+                                <a class="slide2" href="#"></a>
+                            </div>
+                            <div class="swiper-slide">
+                                <a class="slide3" href="#"></a>
+                            </div>
+                        </div>
+                        <!-- 如果需要分页器 -->
+                        <div class="swiper-pagination"></div>
+                    </div>
                     <section class="playList">
                         <h2>推荐歌单</h2>
                         <ul class="musicList">
@@ -164,9 +180,121 @@
                     </section>
                 </li>
                 <li class="page-2">
-                        <div class="hotMusic active">
-                                <img src="./img/下载.gif">
+                    <!-- <img src="./img/下载.gif"> -->
+                    <div class="hotMusic active">
+                        <div class="hotBanner">
+                            <div class="hotLogo">
+                                <img src="./img/hotMusic2.png" alt="">
+                            </div>
                         </div>
+                        <ul class="HotSongList">
+                            <li class="songs">
+                                <a href="#" class="HotSong">
+                                    <p class="Hotnumber">01</p>
+                                    <div class="songName">
+                                        <h2>song.name</h2>
+                                        <div class="songSinger">
+                                            <span>
+                                                <svg class="icon" aria-hidden="true">
+                                                    <use xlink:href="#icon-wusunyinzhi"></use>
+                                                </svg>
+                                            </span>
+                                            <span>song.singer - song.name</span>
+                                        </div>
+                                    </div>
+                                    <div class="playBtn">
+                                        <svg class="icon" aria-hidden="true">
+                                            <use xlink:href="#icon-bofang"></use>
+                                        </svg>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="songs">
+                                <a href="#" class="HotSong">
+                                    <p class="Hotnumber">01</p>
+                                    <div class="songName">
+                                        <h2>song.name</h2>
+                                        <div class="songSinger">
+                                            <span>
+                                                <svg class="icon" aria-hidden="true">
+                                                    <use xlink:href="#icon-wusunyinzhi"></use>
+                                                </svg>
+                                            </span>
+                                            <span>song.singer - song.name</span>
+                                        </div>
+                                    </div>
+                                    <div class="playBtn">
+                                        <svg class="icon" aria-hidden="true">
+                                            <use xlink:href="#icon-bofang"></use>
+                                        </svg>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="songs">
+                                <a href="#" class="HotSong">
+                                    <p class="Hotnumber">01</p>
+                                    <div class="songName">
+                                        <h2>song.name</h2>
+                                        <div class="songSinger">
+                                            <span>
+                                                <svg class="icon" aria-hidden="true">
+                                                    <use xlink:href="#icon-wusunyinzhi"></use>
+                                                </svg>
+                                            </span>
+                                            <span>song.singer - song.name</span>
+                                        </div>
+                                    </div>
+                                    <div class="playBtn">
+                                        <svg class="icon" aria-hidden="true">
+                                            <use xlink:href="#icon-bofang"></use>
+                                        </svg>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="songs">
+                                <a href="#" class="HotSong">
+                                    <p class="Hotnumber">01</p>
+                                    <div class="songName">
+                                        <h2>song.name</h2>
+                                        <div class="songSinger">
+                                            <span>
+                                                <svg class="icon" aria-hidden="true">
+                                                    <use xlink:href="#icon-wusunyinzhi"></use>
+                                                </svg>
+                                            </span>
+                                            <span>song.singer - song.name</span>
+                                        </div>
+                                    </div>
+                                    <div class="playBtn">
+                                        <svg class="icon" aria-hidden="true">
+                                            <use xlink:href="#icon-bofang"></use>
+                                        </svg>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="songs">
+                                <a href="#" class="HotSong">
+                                    <p class="Hotnumber">01</p>
+                                    <div class="songName">
+                                        <h2>song.name</h2>
+                                        <div class="songSinger">
+                                            <span>
+                                                <svg class="icon" aria-hidden="true">
+                                                    <use xlink:href="#icon-wusunyinzhi"></use>
+                                                </svg>
+                                            </span>
+                                            <span>song.singer - song.name</span>
+                                        </div>
+                                    </div>
+                                    <div class="playBtn">
+                                        <svg class="icon" aria-hidden="true">
+                                            <use xlink:href="#icon-bofang"></use>
+                                        </svg>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
                 </li>
                 <li class="page-3">搜索</li>
             </ol>
@@ -226,7 +354,9 @@
             </div>
         </footer>
     </div>
-    <script src="../node_modules/leancloud-storage/dist/av-min.js"></script>
+    <script src="../vendors/av-min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.3.3/js/swiper.min.js"></script>
+    <script src="./js/initializers/swiper.js"></script>
     <script src="./js/initializers/av.js"></script>
     <script src="./js/initializers/rem.js"></script>
     <script src="//at.alicdn.com/t/font_701804_i904aynycpj.js"></script>

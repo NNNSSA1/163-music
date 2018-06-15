@@ -9,6 +9,7 @@ h1,h2,h3,h4,h5,h6{font-weight: normal;}
 a{color: inherit;text-decoration: none;}
 ol,li{list-style: none;}
 
+            
 .icon {
     width: 1em; height: 1em;
     vertical-align: -0.15em;
@@ -20,6 +21,7 @@ ol,li{list-style: none;}
     100%{transform: rotate(360deg)}
 }
 body{
+
     font-size: 16px;
 }
 .wrapper{
@@ -27,6 +29,7 @@ body{
     display: flex;
     flex-direction: column;
     height: 100vh;
+    width: 1rem;
     .cover{
         position: absolute;
         top: 0;
@@ -36,8 +39,17 @@ body{
         background-image: url('#');
         background-size: cover;
         background-position: center;
-        filter: blur(px(6));
         z-index: -1;
+    }
+    .cover::before{
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0 ;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.7);
+
     }
 }
 
@@ -53,47 +65,51 @@ header{
     .songWrapper{
         text-align: center;
         .discWrapper{
+            position: relative;
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding-top:px(80);
+            padding-top:px(60);
+            .iconButton{
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                z-index: 1;
+                margin-left: -0.075rem;
+                .iconplay{
+                    display:none;
+                    svg{
+                        width: px(62);
+                        height: px(62);
+                        fill: white;
+                        background-color: rgba(40, 40, 40, 0.8);
+                        border-radius: 50%;
+                    }
+                }
+                .iconplay.pause{
+                    display:block;
+                }
+            }
             .needle{
-                width: px(110);
-                height: px(157);
+                width: px(90);
+                height: px(137);
                 position: absolute;
                 top:0;
-                left: 45%;
+                left: 52%;
                 z-index: 1;
             }
             .disc{
                 position: relative;
                 animation: turn 20s linear infinite;
                 img{
-                    height: px(342);
-                    width: px(342);
+                    height: px(322);
+                    width: px(322);
 
                 }
                 .disclight{
                     position: absolute;
                     top: 0;
                     left: 0;
-                }
-                .iconButton{
-                    position: absolute;
-                    top: 40%;
-                    left: 40%;
-                    z-index: 1;
-                    .iconplay{
-                        display:none;
-                        svg{
-                            width: px(65);
-                            height: px(65);
-                            fill: white;
-                        }
-                    }
-                    .iconplay.pause{
-                        display:block;
-                    }
                 }
                 .album{
                     position: absolute;
@@ -134,7 +150,7 @@ main{
             overflow: hidden;
             margin:px(14) 0;
             width: px(344);
-            height: 100px;
+            height: px(100);
             .lyric{
                 transition: all 0.3s;
                 p{
@@ -150,14 +166,11 @@ main{
 }
 
 footer{
-    padding-top:px(70);
-    position: relative;
-    flex-grow: 1;
     .buttonWrapper{
-        text-align: center;
         position: absolute;
-        bottom: 0;
-        left: 0;
+         bottom: 0;
+         left: 0;
+        text-align: center;
         width: 100%;
         button{
             width: 48%;

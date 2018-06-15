@@ -29,7 +29,7 @@ body{
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 1;
+    z-index: 11;
     background-color: white;
     .topBar{
         display: flex;
@@ -84,6 +84,40 @@ main{
     .tabContent{
         .page-1{
             display: none;
+            .swiper-container{
+                width: px(375);
+                height: px(150);
+                .swiper-slide{
+                    a{
+                        width: px(375);
+                        height: px(150);
+                        display: block;
+                        background-size: cover;
+                    }
+                    .slide1{
+                        background-image: url('../img/coldplay.jpg');
+        
+                    }
+                    .slide2{
+                        background-image: url('../img/martin-garrixe.jpg');
+                    }
+                    .slide3{
+                        background-image: url('../img/ace.jpg');
+                    }
+                }
+                
+            }
+            .swiper-pagination{
+                 .swiper-pagination-bullet{
+                    outline: none;
+                }
+        
+                .swiper-pagination-bullet.swiper-pagination-bullet-active{
+                    background-color: #D33A31;
+        
+                }
+        
+            }
             section{
                 h2{
                     border-left:2px solid #D33A31;
@@ -107,10 +141,58 @@ main{
             display: none;
             .hotMusic{
                 display: none;
-                text-align: center;
             }
             .hotMusic.active{
+                position: relative;
                 display: block;
+                .hotBanner{
+                    display: flex;
+                    align-items: center;
+                    position: relative;
+                    background-image: url('../img/hotMusic1.jpg');
+                    width: px(375);
+                    height: px(145);
+                    background-size: contain;
+                    .hotLogo{
+                        padding-left: px(20) ;
+                        padding-bottom: px(20);
+                        img{
+                            width: px(142);
+                            height: px(67);
+                        }
+                    }
+                }
+                .HotSongList{
+                    .songs{
+                        padding: px(6) px(10) px(6) px(10);
+                        border-bottom: 1px solid #ddd;
+                        .HotSong{
+                            display: flex;
+                            align-items: center;
+                            .songName{
+                                flex-grow: 1;
+                                h2{
+                                    font-size: 17px;
+                                }
+                                span{
+                                    font-size: 12px;
+                                    color: #aaa;
+                                }
+                            }
+                            p{
+                                width: px(28);
+                                font-size: 17px;
+                            }
+                            .playBtn{
+                                svg{
+                                    width: px(22);
+                                    height: px(22);
+                                    fill:#aaa;
+                                }
+                            }
+                        }
+                    }
+                }
             }
         }
         .page-3{
@@ -168,21 +250,20 @@ main{
     align-items: center;
     flex-grow: 1;
     border-bottom: 1px solid #ddd;
-    padding: px(6) 0;
+    padding: px(6) px(8);
     .songName{
-        padding-left: px(8);
         p{
             font-size: 17px;
         }
         span{
-            color:#888;
+            color:#aaa;
             font-size: 12px;
         }
     }
     .playicon{
-        width: px(28);
-        height: px(28);
-        fill: #888;
+        width: px(22);
+        height: px(22);
+        fill: #aaa8;
     }
 
 }
