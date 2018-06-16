@@ -22,7 +22,7 @@ body{
     header{
         display: flex;
         flex-direction: column;
-        height: px(100);
+
         }
     }
 .sticky{
@@ -81,6 +81,7 @@ body{
 }
 
 main{
+    margin-top: px(100);
     .tabContent{
         .page-1{
             display: none;
@@ -172,6 +173,7 @@ main{
                             .songName{
                                 flex-grow: 1;
                                 h2{
+                                    color: black;
                                     font-size: 17px;
                                 }
                                 span{
@@ -180,6 +182,7 @@ main{
                                 }
                             }
                             p{
+                                color:inherit;
                                 width: px(28);
                                 font-size: 17px;
                             }
@@ -192,11 +195,76 @@ main{
                             }
                         }
                     }
+                    .songs:nth-child(1),.songs:nth-child(2),.songs:nth-child(3){
+                        color: #D33A31;
+                    }
                 }
             }
         }
         .page-3{
             display: none;
+            .searchWrapper{
+                .search{
+                    position: relative;
+                    padding: px(15) px(10);
+                    border-bottom: 1px solid #ebecec;
+                    input{
+                        padding-left: px(30);
+                        width: 100%;
+                        height: px(30);
+                        border-radius: px(20);
+                        border: 1px solid #ebecec;
+                        background-color: #ebecec;
+                        outline: none;
+                        color: #c9c9c9;
+                    }
+                }
+                .searchinner{
+                    display: none;
+                    padding: px(15) px(10);
+                    width: 100%;
+                    height: px(50);
+                    border-bottom: 1px solid #ebecec;
+                    p{
+                        color:#507daf;
+                    }
+                }
+                .searchinner.active{
+                    display: block
+                }
+                .hotSearch{
+                    display: block;
+                    padding: px(10) px(10);
+                    h3{
+                        font-size: 12px;
+                    }
+                    .hotmusicList{
+                        margin: px(10) 0 px(7) 0;
+                        display: flex;
+                        justify-content: flex-start;
+                        flex-wrap: wrap;
+                        .hotitem{
+                            margin-left: px(8);
+                            margin-bottom: px(8);
+                            border:1px solid #ebecec;
+                            padding: px(5) px(10);
+                            border-radius: px(20);
+                            a{
+                                font-size: 14px;
+                            }
+                        }
+                    }
+                }
+                .hotSearch.active{
+                    display: none
+                }
+                .searchicon{
+                    position: absolute;
+                    bottom: 33%;
+                    left: 5%;
+                    color: #c9c9c9;
+                }
+            }
         }
         .page-1.active{
             display: block
@@ -296,4 +364,7 @@ main{
         margin-bottom: px(25);
     }
     
+}
+footer.active{
+    display: none;
 }
