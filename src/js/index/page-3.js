@@ -65,8 +65,14 @@
         },
         search() {
             let Inputval = $('.search>input').val()
-            var query = new AV.Query('Song')
-            query.contains('name', Inputval)
+            var query1 = new AV.Query('Song')
+            query1.contains('name', Inputval)
+            
+            var query2 = new AV.Query('Song')
+            query2.contains('singer', Inputval)
+
+            var query = AV.Query.or(query1, query2)
+
             return query.find().then((songs) => {
                 return songs
             })
