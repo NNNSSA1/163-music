@@ -30,7 +30,12 @@
             let n = 0
             songs.map((song) => {
                 n += 1
-                let $li = $(this.template.replace('song.id', song.id).replace('song.name', song.name).replace('song.singer', song.singer).replace('order', n))
+                if(n >= 10){
+                    var $li = $(this.template.replace('song.id', song.id).replace('song.name', song.name).replace('song.singer', song.singer).replace('0order', n))
+                }else{    
+                    var $li = $(this.template.replace('song.id', song.id).replace('song.name', song.name).replace('song.singer', song.singer).replace('order', n))
+                }
+                
                 $(this.el).find('.HotSongList').append($li)
             })
         },
@@ -42,6 +47,9 @@
         },
         hide() {
             this.$el.removeClass('active')
+        },
+        clearload(){
+            this.$el.find('.hotmusicloadding').removeClass('active')
         }
     }
     let model = {
@@ -67,6 +75,7 @@
             this.bindEventHub()
             this.model.find().then(() => {
                 this.view.rander(this.model.data)
+                this.view.clearload()
             })
         },
         bindEventHub() {

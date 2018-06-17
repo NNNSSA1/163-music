@@ -9,13 +9,13 @@
             $(this.el).html(this.template)
             let { songs, SongId} = data
             let liList = songs.map((song) => {
+                console.log(song)
                 let $li = $('<li></li>').text(song.name).attr('data-id', song.id)
                 if (song.id === SongId) {
                     $li.addClass('active')
                 }
                 return $li
             })
-
             let $el = $(this.el)
             $el.find('ul').empty()
             liList.map((domLi) => {
@@ -35,7 +35,9 @@
             var query = new AV.Query('Song');
             return query.find().then((songs) => {
                 this.data.songs = songs.map((song) => {
-                    return { id: song.id, ...song.attributes }
+                    let id = song.id
+                    let {url,name,singer,cover,lyric} = song.attributes
+                    return { id,url,name,singer,cover,lyric}
                 })
                 return songs            //得到什么就返回什么
             })

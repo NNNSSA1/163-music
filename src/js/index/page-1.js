@@ -41,7 +41,7 @@
         },
         loadModel2(){
             let script2 = document.createElement('script')
-            script2.src = './js/index/songlist.js'
+            script2.src = './js/index/songList.js'
             document.body.appendChild(script2)
             script2.onload = function(){
                 console.log('模块二加载成功')

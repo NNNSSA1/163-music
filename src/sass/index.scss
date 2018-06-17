@@ -140,6 +140,13 @@ main{
         }
         .page-2{
             display: none;
+            .hotmusicloadding{
+                display: none;
+            }
+            .hotmusicloadding.active{
+                text-align: center;
+                display: block;
+            }
             .hotMusic{
                 display: none;
             }
@@ -218,15 +225,33 @@ main{
                         outline: none;
                         color: #c9c9c9;
                     }
+                    input.active{
+                        color:black;
+                    }
                 }
                 .searchinner{
                     display: none;
-                    padding: px(15) px(10);
-                    width: 100%;
-                    height: px(50);
-                    border-bottom: 1px solid #ebecec;
-                    p{
-                        color:#507daf;
+                    .searchContent{
+                        padding: px(15) px(10);
+                        border-bottom: 1px solid #ebecec;
+                        p{
+                            color:#507daf;
+                        }
+                    }
+                    .searchList{
+                        .searchSong{
+                            padding: px(15) px(10);
+                            border-bottom: 1px solid #ebecec;
+                            svg{
+                                margin-right: px(6);
+                                fill: #c9c9c9;
+                            }
+                        }
+                    }
+                    .searchList.active{
+                        text-align: center;
+                        margin-top: px(12);
+                        color:red;
                     }
                 }
                 .searchinner.active{
@@ -239,6 +264,8 @@ main{
                         font-size: 12px;
                     }
                     .hotmusicList{
+                        height: px(120);
+                        overflow: hidden;
                         margin: px(10) 0 px(7) 0;
                         display: flex;
                         justify-content: flex-start;
