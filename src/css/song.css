@@ -110,8 +110,8 @@ header .songWrapper {
         left: 0; }
       header .songWrapper .discWrapper .disc .album {
         position: absolute;
-        top: 18%;
-        left: 18%;
+        top: 16%;
+        left: 16%;
         width: 0.52174rem;
         height: 0.52174rem;
         border-radius: 50%; }

@@ -5,16 +5,16 @@
         template: `
             <li class="songs">
                 <a href="./song.html?id=song.id" class="HotSong">
-                    <p class="Hotnumber">0order</p>
+                    <p class="Hotnumber">order</p>
                     <div class="songName">
-                        <h2>song.name</h2>
+                        <h2>__song.name</h2>
                         <div class="songSinger">
                             <span>
                                 <svg class="icon" aria-hidden="true">
                                     <use xlink:href="#icon-wusunyinzhi"></use>
                                 </svg>
                             </span>
-                            <span>song.singer - song.name</span>
+                            <span>__song.singer -__a__ </span> 
                         </div>
                     </div>
                     <div class="playBtn">
@@ -30,17 +30,25 @@
             let n = 0
             songs.map((song) => {
                 n += 1
-                if(n >= 10){
-                    var $li = $(this.template.replace('song.id', song.id).replace('song.name', song.name).replace('song.singer', song.singer).replace('0order', n))
-                }else{    
-                    var $li = $(this.template.replace('song.id', song.id).replace('song.name', song.name).replace('song.singer', song.singer).replace('order', n))
-                }
-                
+                let $li = $(this.template
+                    .replace('song.id', song.id)
+                    .replace('__song.singer', song.singer)
+                    .replace('__a__', song.name)
+                    .replace('__song.name', song.name)
+                    .replace('order',this.number(n)))
                 $(this.el).find('.HotSongList').append($li)
             })
         },
+
         init() {
             this.$el = $(this.el)
+        },
+        number(n){
+            if(n<10){
+                n =`0${n}`
+                
+            }
+            return n
         },
         show() {
             this.$el.addClass('active')
@@ -48,7 +56,7 @@
         hide() {
             this.$el.removeClass('active')
         },
-        clearload(){
+        clearload() {
             this.$el.find('.hotmusicloadding').removeClass('active')
         }
     }
@@ -57,14 +65,14 @@
             songs: []
         },
         find() {
-                var query = new AV.Query('Song');
-                return query.find().then((songs) => {
-                    this.data.songs = songs.map((song) => {
-                        let id = song.id
-                        let { name, url, singer } = song.attributes
-                        return { id, name, url, singer }
-                    })
+            var query = new AV.Query('Song');
+            return query.find().then((songs) => {
+                this.data.songs = songs.map((song) => {
+                    let id = song.id
+                    let { name, url, singer } = song.attributes
+                    return { id, name, url, singer }
                 })
+            })
         },
     }
     let controller = {
