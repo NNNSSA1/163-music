@@ -1,260 +1,405 @@
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box; }
+  box-sizing: border-box;
+}
 
 *::after {
-  box-sizing: border-box; }
+  box-sizing: border-box;
+}
 
 *::before {
-  box-sizing: border-box; }
+  box-sizing: border-box;
+}
 
-h1, h2, h3, h4, h5, h6 {
-  font-weight: normal; }
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: normal;
+}
 
 a {
   color: inherit;
-  text-decoration: none; }
+  text-decoration: none;
+}
 
-ol, li {
-  list-style: none; }
+ol,
+li {
+  list-style: none;
+}
 
 .icon {
   width: 1em;
   height: 1em;
   vertical-align: -0.15em;
   fill: currentColor;
-  overflow: hidden; }
+  overflow: hidden;
+}
 
 body {
-  font-size: 15px; }
+  font-size: 15px;
+}
 
 .appWrapper header {
   display: flex;
-  flex-direction: column; }
+  flex-direction: column;
+}
 
 .sticky {
   position: fixed;
   top: 0;
   left: 0;
   z-index: 11;
-  background-color: white; }
-  .sticky .topBar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0.04267rem 0.02667rem;
-    width: 1rem;
-    background-color: #D43C33; }
-    .sticky .topBar svg {
-      width: 0.37867rem;
-      height: 0.06667rem; }
-    .sticky .topBar a {
-      color: white;
-      border: 1px solid #eba4a0;
-      border-radius: 0.05333rem;
-      padding: 0.01067rem 0.02133rem;
-      font-size: 15px; }
-  .sticky nav .tabList {
-    display: flex;
-    justify-content: space-around;
-    border-bottom: 1px solid #ddd; }
-    .sticky nav .tabList li {
-      position: relative;
-      padding: 0.02667rem 0; }
-      .sticky nav .tabList li span::after {
-        display: none;
-        position: absolute;
-        content: '';
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        border: 1px solid #D33A31; }
-    .sticky nav .tabList li.active span::after {
-      display: block; }
-    .sticky nav .tabList li.active span {
-      color: #D33A31; }
+  background-color: white;
+}
+
+.sticky .topBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.04267rem 0.02667rem;
+  width: 1rem;
+  background-color: #D43C33;
+}
+
+.sticky .topBar svg {
+  width: 0.37867rem;
+  height: 0.06667rem;
+}
+
+.sticky .topBar a {
+  color: white;
+  border: 1px solid #eba4a0;
+  border-radius: 0.05333rem;
+  padding: 0.01067rem 0.02133rem;
+  font-size: 15px;
+}
+
+.sticky nav .tabList {
+  display: flex;
+  justify-content: space-around;
+  border-bottom: 1px solid #ddd;
+}
+
+.sticky nav .tabList li {
+  position: relative;
+  padding: 0.02667rem 0;
+}
+
+.sticky nav .tabList li span::after {
+  display: none;
+  position: absolute;
+  content: '';
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  border: 1px solid #D33A31;
+}
+
+.sticky nav .tabList li.active span::after {
+  display: block;
+}
+
+.sticky nav .tabList li.active span {
+  color: #D33A31;
+}
 
 main {
-  margin-top: 0.26667rem; }
-  main .tabContent .page-1 {
-    display: none; }
-    main .tabContent .page-1 .swiper-container {
-      width: 1rem;
-      height: 0.4rem; }
-      main .tabContent .page-1 .swiper-container .swiper-slide a {
-        width: 1rem;
-        height: 0.4rem;
-        display: block;
-        background-size: cover; }
-      main .tabContent .page-1 .swiper-container .swiper-slide .slide1 {
-        background-image: url("../img/coldplay.jpg"); }
-      main .tabContent .page-1 .swiper-container .swiper-slide .slide2 {
-        background-image: url("../img/martin-garrixe.jpg"); }
-      main .tabContent .page-1 .swiper-container .swiper-slide .slide3 {
-        background-image: url("../img/ace.jpg"); }
-    main .tabContent .page-1 .swiper-pagination .swiper-pagination-bullet {
-      outline: none; }
-    main .tabContent .page-1 .swiper-pagination .swiper-pagination-bullet.swiper-pagination-bullet-active {
-      background-color: #D33A31; }
-    main .tabContent .page-1 section h2 {
-      border-left: 2px solid #D33A31;
-      line-height: 1;
-      font-size: 0.04533rem;
-      margin: 0.05333rem 0;
-      padding-left: 0.02133rem; }
-    main .tabContent .page-1 section .musicload {
-      display: none;
-      text-align: center; }
-    main .tabContent .page-1 section .musicload.active {
-      display: block; }
-  main .tabContent .page-2 {
-    display: none; }
-    main .tabContent .page-2 .hotmusicloadding {
-      display: none; }
-    main .tabContent .page-2 .hotmusicloadding.active {
-      text-align: center;
-      display: block; }
-    main .tabContent .page-2 .hotMusic {
-      display: none; }
-    main .tabContent .page-2 .hotMusic.active {
-      position: relative;
-      display: block; }
-      main .tabContent .page-2 .hotMusic.active .hotBanner {
-        display: flex;
-        align-items: center;
-        position: relative;
-        background-image: url("../img/hotMusic1.jpg");
-        width: 1rem;
-        height: 0.38667rem;
-        background-size: contain; }
-        main .tabContent .page-2 .hotMusic.active .hotBanner .hotLogo {
-          padding-left: 0.05333rem;
-          padding-bottom: 0.05333rem; }
-          main .tabContent .page-2 .hotMusic.active .hotBanner .hotLogo img {
-            width: 0.37867rem;
-            height: 0.17867rem; }
-      main .tabContent .page-2 .hotMusic.active .HotSongList .songs {
-        padding: 0.016rem 0.02667rem 0.016rem 0.02667rem;
-        border-bottom: 1px solid #ddd; }
-        main .tabContent .page-2 .hotMusic.active .HotSongList .songs .HotSong {
-          display: flex;
-          align-items: center; }
-          main .tabContent .page-2 .hotMusic.active .HotSongList .songs .HotSong .songName {
-            flex-grow: 1; }
-            main .tabContent .page-2 .hotMusic.active .HotSongList .songs .HotSong .songName h2 {
-              color: black;
-              font-size: 17px; }
-            main .tabContent .page-2 .hotMusic.active .HotSongList .songs .HotSong .songName span {
-              font-size: 12px;
-              color: #aaa; }
-          main .tabContent .page-2 .hotMusic.active .HotSongList .songs .HotSong p {
-            color: inherit;
-            width: 0.07467rem;
-            font-size: 17px; }
-          main .tabContent .page-2 .hotMusic.active .HotSongList .songs .HotSong .playBtn svg {
-            width: 0.05867rem;
-            height: 0.05867rem;
-            fill: #aaa; }
-      main .tabContent .page-2 .hotMusic.active .HotSongList .songs:nth-child(1), main .tabContent .page-2 .hotMusic.active .HotSongList .songs:nth-child(2), main .tabContent .page-2 .hotMusic.active .HotSongList .songs:nth-child(3) {
-        color: #D33A31; }
-  main .tabContent .page-3 {
-    display: none; }
-    main .tabContent .page-3 .searchWrapper .search {
-      position: relative;
-      padding: 0.04rem 0.02667rem;
-      border-bottom: 1px solid #ebecec; }
-      main .tabContent .page-3 .searchWrapper .search input {
-        padding-left: 0.08rem;
-        width: 100%;
-        height: 0.08rem;
-        border-radius: 0.05333rem;
-        border: 1px solid #ebecec;
-        background-color: #ebecec;
-        outline: none;
-        color: #c9c9c9; }
-      main .tabContent .page-3 .searchWrapper .search input.active {
-        color: black; }
-    main .tabContent .page-3 .searchWrapper .searchinner {
-      display: none; }
-      main .tabContent .page-3 .searchWrapper .searchinner .searchContent {
-        padding: 0.04rem 0.02667rem;
-        border-bottom: 1px solid #ebecec; }
-        main .tabContent .page-3 .searchWrapper .searchinner .searchContent p {
-          color: #507daf; }
-      main .tabContent .page-3 .searchWrapper .searchinner .searchList .searchSong {
-        padding: 0.04rem 0.02667rem;
-        border-bottom: 1px solid #ebecec; }
-        main .tabContent .page-3 .searchWrapper .searchinner .searchList .searchSong svg {
-          margin-right: 0.016rem;
-          fill: #c9c9c9; }
-      main .tabContent .page-3 .searchWrapper .searchinner .searchList.active {
-        text-align: center;
-        margin-top: 0.032rem;
-        color: red; }
-    main .tabContent .page-3 .searchWrapper .searchinner.active {
-      display: block; }
-    main .tabContent .page-3 .searchWrapper .hotSearch {
-      display: block;
-      padding: 0.02667rem 0.02667rem; }
-      main .tabContent .page-3 .searchWrapper .hotSearch h3 {
-        font-size: 12px; }
-      main .tabContent .page-3 .searchWrapper .hotSearch .hotmusicList {
-        height: 0.32rem;
-        overflow: hidden;
-        margin: 0.02667rem 0 0.01867rem 0;
-        display: flex;
-        justify-content: flex-start;
-        flex-wrap: wrap; }
-        main .tabContent .page-3 .searchWrapper .hotSearch .hotmusicList .hotitem {
-          margin-left: 0.02133rem;
-          margin-bottom: 0.02133rem;
-          border: 1px solid #ebecec;
-          padding: 0.01333rem 0.02667rem;
-          border-radius: 0.05333rem; }
-          main .tabContent .page-3 .searchWrapper .hotSearch .hotmusicList .hotitem a {
-            font-size: 14px; }
-    main .tabContent .page-3 .searchWrapper .hotSearch.active {
-      display: none; }
-    main .tabContent .page-3 .searchWrapper .searchicon {
-      position: absolute;
-      bottom: 33%;
-      left: 5%;
-      color: #c9c9c9; }
-  main .tabContent .page-1.active {
-    display: block; }
-  main .tabContent .page-2.active {
-    display: block; }
-  main .tabContent .page-3.active {
-    display: block; }
+  margin-top: 0.26667rem;
+}
+
+main .tabContent .page-1 {
+  display: none;
+}
+
+main .tabContent .page-1 .swiper-container {
+  width: 1rem;
+  height: 0.4rem;
+}
+
+main .tabContent .page-1 .swiper-container .swiper-slide a {
+  width: 1rem;
+  height: 0.4rem;
+  display: block;
+  background-size: cover;
+}
+
+main .tabContent .page-1 .swiper-container .swiper-slide .slide1 {
+  background-image: url("../img/coldplay.jpg");
+}
+
+main .tabContent .page-1 .swiper-container .swiper-slide .slide2 {
+  background-image: url("../img/martin-garrixe.jpg");
+}
+
+main .tabContent .page-1 .swiper-container .swiper-slide .slide3 {
+  background-image: url("../img/ace.jpg");
+}
+
+main .tabContent .page-1 .swiper-pagination .swiper-pagination-bullet {
+  outline: none;
+}
+
+main .tabContent .page-1 .swiper-pagination .swiper-pagination-bullet.swiper-pagination-bullet-active {
+  background-color: #D33A31;
+}
+
+main .tabContent .page-1 section h2 {
+  border-left: 2px solid #D33A31;
+  line-height: 1;
+  font-size: 0.04533rem;
+  margin: 0.05333rem 0;
+  padding-left: 0.02133rem;
+}
+
+main .tabContent .page-1 section .musicload {
+  display: none;
+  text-align: center;
+}
+
+main .tabContent .page-1 section .musicload.active {
+  display: block;
+}
+
+main .tabContent .page-2 {
+  display: none;
+}
+
+main .tabContent .page-2 .hotmusicloadding {
+  display: none;
+}
+
+main .tabContent .page-2 .hotmusicloadding.active {
+  text-align: center;
+  display: block;
+}
+
+main .tabContent .page-2 .hotMusic {
+  display: none;
+}
+
+main .tabContent .page-2 .hotMusic.active {
+  position: relative;
+  display: block;
+}
+
+main .tabContent .page-2 .hotMusic.active .hotBanner {
+  display: flex;
+  align-items: center;
+  position: relative;
+  background-image: url("../img/hotMusic1.jpg");
+  width: 1rem;
+  height: 0.38667rem;
+  background-size: contain;
+}
+
+main .tabContent .page-2 .hotMusic.active .hotBanner .hotLogo {
+  padding-left: 0.05333rem;
+  padding-bottom: 0.05333rem;
+}
+
+main .tabContent .page-2 .hotMusic.active .hotBanner .hotLogo img {
+  width: 0.37867rem;
+  height: 0.17867rem;
+}
+
+main .tabContent .page-2 .hotMusic.active .HotSongList .songs {
+  padding: 0.016rem 0.02667rem 0.016rem 0.02667rem;
+  border-bottom: 1px solid #ddd;
+}
+
+main .tabContent .page-2 .hotMusic.active .HotSongList .songs .HotSong {
+  display: flex;
+  align-items: center;
+}
+
+main .tabContent .page-2 .hotMusic.active .HotSongList .songs .HotSong .songName {
+  flex-grow: 1;
+}
+
+main .tabContent .page-2 .hotMusic.active .HotSongList .songs .HotSong .songName h2 {
+  color: black;
+  font-size: 17px;
+}
+
+main .tabContent .page-2 .hotMusic.active .HotSongList .songs .HotSong .songName span {
+  font-size: 12px;
+  color: #aaa;
+}
+
+main .tabContent .page-2 .hotMusic.active .HotSongList .songs .HotSong p {
+  color: inherit;
+  width: 0.07467rem;
+  font-size: 17px;
+}
+
+main .tabContent .page-2 .hotMusic.active .HotSongList .songs .HotSong .playBtn svg {
+  width: 0.05867rem;
+  height: 0.05867rem;
+  fill: #aaa;
+}
+
+main .tabContent .page-2 .hotMusic.active .HotSongList .songs:nth-child(1),
+main .tabContent .page-2 .hotMusic.active .HotSongList .songs:nth-child(2),
+main .tabContent .page-2 .hotMusic.active .HotSongList .songs:nth-child(3) {
+  color: #D33A31;
+}
+
+main .tabContent .page-3 {
+  display: none;
+}
+
+main .tabContent .page-3 .searchWrapper .search {
+  position: relative;
+  padding: 0.04rem 0.02667rem;
+  border-bottom: 1px solid #ebecec;
+}
+
+main .tabContent .page-3 .searchWrapper .search input {
+  padding-left: 0.08rem;
+  width: 100%;
+  height: 0.08rem;
+  border-radius: 0.05333rem;
+  border: 1px solid #ebecec;
+  background-color: #ebecec;
+  outline: none;
+  color: #c9c9c9;
+}
+
+main .tabContent .page-3 .searchWrapper .search input.active {
+  color: black;
+}
+
+main .tabContent .page-3 .searchWrapper .searchinner {
+  display: none;
+}
+
+main .tabContent .page-3 .searchWrapper .searchinner .searchContent {
+  padding: 0.04rem 0.02667rem;
+  border-bottom: 1px solid #ebecec;
+}
+
+main .tabContent .page-3 .searchWrapper .searchinner .searchContent p {
+  color: #507daf;
+}
+
+main .tabContent .page-3 .searchWrapper .searchinner .searchList .searchSong {
+  padding: 0.04rem 0.02667rem;
+  border-bottom: 1px solid #ebecec;
+}
+
+main .tabContent .page-3 .searchWrapper .searchinner .searchList .searchSong svg {
+  margin-right: 0.016rem;
+  fill: #c9c9c9;
+}
+
+main .tabContent .page-3 .searchWrapper .searchinner .searchList.active {
+  text-align: center;
+  margin-top: 0.032rem;
+  color: red;
+}
+
+main .tabContent .page-3 .searchWrapper .searchinner.active {
+  display: block;
+}
+
+main .tabContent .page-3 .searchWrapper .hotSearch {
+  display: block;
+  padding: 0.02667rem 0.02667rem;
+}
+
+main .tabContent .page-3 .searchWrapper .hotSearch h3 {
+  font-size: 12px;
+}
+
+main .tabContent .page-3 .searchWrapper .hotSearch .hotmusicList {
+  height: 0.32rem;
+  overflow: hidden;
+  margin: 0.02667rem 0 0.01867rem 0;
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
+main .tabContent .page-3 .searchWrapper .hotSearch .hotmusicList .hotitem {
+  margin-left: 0.02133rem;
+  margin-bottom: 0.02133rem;
+  border: 1px solid #ebecec;
+  padding: 0.01333rem 0.02667rem;
+  border-radius: 0.05333rem;
+}
+
+main .tabContent .page-3 .searchWrapper .hotSearch .hotmusicList .hotitem a {
+  font-size: 14px;
+}
+
+main .tabContent .page-3 .searchWrapper .hotSearch.active {
+  display: none;
+}
+
+main .tabContent .page-3 .searchWrapper .searchicon {
+  position: absolute;
+  bottom: 33%;
+  left: 5%;
+  color: #c9c9c9;
+}
+
+main .tabContent .page-1.active {
+  display: block;
+}
+
+main .tabContent .page-2.active {
+  display: block;
+}
+
+main .tabContent .page-3.active {
+  display: block;
+}
 
 .musicList {
   display: flex;
-  flex-wrap: wrap; }
-  .musicList .music {
-    width: 32.3%;
-    padding-bottom: 0.04267rem;
-    flex-grow: 1; }
-    .musicList .music .cover {
-      position: relative;
-      display: block; }
-      .musicList .music .cover img {
-        width: 100%;
-        height: 100%; }
-      .musicList .music .cover p {
-        padding: 0.016rem 0.016rem 0 0.016rem;
-        display: -webkit-box;
-        -webkit-box-orient: vertical;
-        -webkit-line-clamp: 2;
-        overflow: hidden; }
-      .musicList .music .cover span {
-        position: absolute;
-        top: 0;
-        right: 0.01333rem;
-        font-size: 13px;
-        color: white; }
-  .musicList .music:nth-child(2), .musicList .music:nth-child(5) {
-    margin: 0 0.008rem; }
+  flex-wrap: wrap;
+}
+
+.musicList .music {
+  width: 32.3%;
+  padding-bottom: 0.04267rem;
+  flex-grow: 1;
+}
+
+.musicList .music .cover {
+  position: relative;
+  display: block;
+}
+
+.musicList .music .cover img {
+  width: 100%;
+  height: 100%;
+}
+
+.musicList .music .cover p {
+  padding: 0.016rem 0.016rem 0 0.016rem;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+
+.musicList .music .cover span {
+  position: absolute;
+  top: 0;
+  right: 0.01333rem;
+  font-size: 13px;
+  color: white;
+}
+
+.musicList .music:nth-child(2),
+.musicList .music:nth-child(5) {
+  margin: 0 0.008rem;
+}
 
 .playSong {
   display: flex;
@@ -262,16 +407,23 @@ main {
   align-items: center;
   flex-grow: 1;
   border-bottom: 1px solid #ddd;
-  padding: 0.016rem 0.02133rem; }
-  .playSong .songName p {
-    font-size: 17px; }
-  .playSong .songName span {
-    color: #aaa;
-    font-size: 12px; }
-  .playSong .playicon {
-    width: 0.05867rem;
-    height: 0.05867rem;
-    fill: #aaa8; }
+  padding: 0.016rem 0.02133rem;
+}
+
+.playSong .songName p {
+  font-size: 17px;
+}
+
+.playSong .songName span {
+  color: #aaa;
+  font-size: 12px;
+}
+
+.playSong .playicon {
+  width: 0.05867rem;
+  height: 0.05867rem;
+  fill: #aaa8;
+}
 
 .footerWrapper {
   display: flex;
@@ -279,24 +431,32 @@ main {
   align-items: center;
   background-image: url("../img/footerBC.png");
   background-size: cover;
-  padding-top: 0.24rem; }
-  .footerWrapper .logosvg {
-    width: 0.61333rem;
-    height: 0.11733rem; }
-  .footerWrapper .openApp {
-    text-align: center;
-    width: 0.8rem;
-    padding: 0.02133rem 0;
-    border: 1px solid #D33A31;
-    border-radius: 0.10133rem;
-    margin-top: 0.04rem;
-    margin-bottom: 0.01333rem;
-    color: #D33A31;
-    font-size: 16px; }
-  .footerWrapper p {
-    font-size: 9px;
-    color: #888;
-    margin-bottom: 0.06667rem; }
+  padding-top: 0.24rem;
+}
+
+.footerWrapper .logosvg {
+  width: 0.61333rem;
+  height: 0.11733rem;
+}
+
+.footerWrapper .openApp {
+  text-align: center;
+  width: 0.8rem;
+  padding: 0.02133rem 0;
+  border: 1px solid #D33A31;
+  border-radius: 0.10133rem;
+  margin-top: 0.04rem;
+  margin-bottom: 0.01333rem;
+  color: #D33A31;
+  font-size: 16px;
+}
+
+.footerWrapper p {
+  font-size: 9px;
+  color: #888;
+  margin-bottom: 0.06667rem;
+}
 
 footer.active {
-  display: none; }
+  display: none;
+}
